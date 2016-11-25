@@ -29,6 +29,7 @@ class FranceInter:
                 
                 div_list = soup.find("div", class_="diffusions-list")
                 for article_list in div_list.find_all("article", class_="rich-section-list-item "):
+                    a_name = ''
                     try:
                         a_link = article_list.find("button", class_="replay-button playable")["data-url"]
                         a_name = article_list.find("a", class_="rich-section-list-item-content-title")["title"].replace("'", "").replace('"', "").replace(':',

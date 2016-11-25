@@ -28,6 +28,7 @@ class RTL:
                 soup.prettify()
                 
                 for div_list in soup.find_all("div", class_="timeline-post shift"):
+                    a_name = ''
                     try:
                         div_item = div_list.find("div", class_="post-fig brd brd-grey")
                         a_link = div_item.find("a", class_="post-link")["href"]
