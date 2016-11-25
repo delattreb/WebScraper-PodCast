@@ -4,11 +4,12 @@ Auteur: Bruno DELATTRE
 Date : 14/08/2016
 """
 
-import logging
 import colorlog
+import logging
 
 from lib import com_config
 from logging.handlers import RotatingFileHandler
+
 
 class Logger:
     def __init__(self, name='', file=''):

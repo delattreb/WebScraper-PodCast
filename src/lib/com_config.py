@@ -28,8 +28,8 @@ def setConfig():
     
     # EMAIL
     config['EMAIL'] = {}
-    config['EMAIL']['from'] = 'XXX'
-    config['EMAIL']['to'] = 'XXX'
+    config['EMAIL']['from'] = 'delattreb@gmail.com'
+    config['EMAIL']['to'] = 'delattreb@gmail.com'
     config['EMAIL']['password'] = 'XXX'
     
     # SQLite

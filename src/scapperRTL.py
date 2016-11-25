@@ -13,11 +13,12 @@ from bs4 import BeautifulSoup
 
 from lib import com_config, com_email, com_sqlite, com_logger
 
+
 class RTL:
     def __init__(self):
         config = com_config.getConfig()
         logger = com_logger.Logger('RTL')
-
+        
         for conf in config['URLRTL']:
             url = config['URLRTL'][str(conf)]
             logger.info('Check URL: ' + url)
@@ -53,4 +54,4 @@ class RTL:
                                 com_email.send_mail_gmail("PodCast: " + a_name, table)
                             break
                     except:
-                        pass
+                        logger.error('Name: ' + a_name)

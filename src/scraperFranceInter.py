@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 
 from lib import com_config, com_email, com_sqlite, com_logger
 
+
 class FranceInter:
     def __init__(self):
         config = com_config.getConfig()
@@ -45,5 +46,5 @@ class FranceInter:
                             table.append(a_name)
                             com_email.send_mail_gmail("PodCast: " + a_name, table)
                     except:
-                        pass
+                        logger.error('Name: ' + a_name)
                     break
