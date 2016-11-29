@@ -28,9 +28,9 @@ def setConfig():
     
     # EMAIL
     config['EMAIL'] = {}
-    config['EMAIL']['from'] = 'delattreb@gmail.com'
+    config['EMAIL']['from'] = 'pythonuseriot@gmail.com'
     config['EMAIL']['to'] = 'delattreb@gmail.com'
-    config['EMAIL']['password'] = 'XXX'
+    config['EMAIL']['password'] = 'pythonuser'
     
     # SQLite
     config['SQLITE'] = {}
