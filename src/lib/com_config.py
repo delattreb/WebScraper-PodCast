@@ -17,7 +17,7 @@ def setConfig():
     config['APPLICATION'] = {}
     config['APPLICATION']['name'] = 'Web Scrapper'
     config['APPLICATION']['version'] = '1.2.0'
-    config['APPLICATION']['author'] = '© Bruno DELATTRE'
+    config['APPLICATION']['author'] = 'Bruno DELATTRE'
     
     # LOGGER
     config['LOGGER'] = {}
