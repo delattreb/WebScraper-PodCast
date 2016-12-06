@@ -1,14 +1,15 @@
 # coding=utf-8
 
-from lib import fileutils
-from lib import com_config
 import os.path
 
+from lib import com_config, fileutils
 
 print("Start")
-config = com_config.getConfig()
+conf = com_config.Config()
+config = conf.getconfig()
 sourcepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), config['DIRDOWNLOAD']['DIR'])
 destpath = config['DIRCOPY']['DIR']
-fileutils.movelist(sourcepath, destpath)
-print("End")
 
+fileutil = fileutils.FileUtils()
+fileutil.movelist(sourcepath, destpath)
+print("End")

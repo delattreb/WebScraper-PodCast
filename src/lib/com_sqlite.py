@@ -10,7 +10,8 @@ from lib import com_config
 
 
 def connect():
-    config = com_config.getConfig()
+    conf = com_config.Config()
+    config = conf.getconfig()
     con = sqlite3.connect(config['SQLITE']['database'])
     cursor = con.cursor()
     return con, cursor
@@ -19,11 +20,11 @@ def connect():
 def select(val):
     con, cursor = connect()
     rows = cursor.execute("SELECT id FROM data WHERE id='" + str(val) + "'")
-    id = 0
+    index = 0
     for row in rows:
-        id = row[0]
+        index = row[0]
     con.close()
-    return id
+    return index
 
 
 def insert(val):

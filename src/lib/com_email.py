@@ -13,34 +13,51 @@ from email.mime.text import MIMEText
 from lib import com_config, com_logger
 
 
-def send_mail_gmail(subject, table, filename=""):
-    config = com_config.getConfig()
-    body = "<H2>Nouvelles informations</H2><br><br>"
-
-    for line in table:
-        body += line + "<br>"
-
-    msg = MIMEMultipart()
-
-    msg['From'] = config['EMAIL']['from']
-    msg['To'] = config['EMAIL']['to']
-    msg['Subject'] = subject
-    msg.attach(MIMEText(body, 'html'))
-
-    if len(filename) > 0:
-        attachment = open("./" + filename, "rb")
-        part = MIMEBase('application', 'octet-stream')
-        part.set_payload((attachment).read())
-        encoders.encode_base64(part)
-        part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-        msg.attach(part)
-
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(config['EMAIL']['from'], config['EMAIL']['password'])
-    text = msg.as_string()
-    server.sendmail(config['EMAIL']['from'], config['EMAIL']['to'], text)
-    server.quit()
+class Mail:
+    def __init__(self):
+        conf = com_config.Config()
+        self.config = conf.getconfig()
     
-    logger = com_logger.Logger('Mail')
-    logger.info('Mail sent')
+    def send_mail_gmail(self, subject, table, filename = ''):
+        htmlheader = """\
+            <html>
+              <head></head>
+              <body>
+                <H2>Nouvelles informations</H2><br><br>
+                <p>
+            """
+        
+        htmlfooter = """\
+                </p>
+              </body>
+            </html>
+            """
+        
+        for line in table:
+            htmlheader += line + "<br>"
+        htmlheader += htmlfooter
+        
+        msg = MIMEMultipart()
+        msg['To'] = self.config['EMAIL']['to']
+        msg['From'] = self.config['EMAIL']['from']
+        msg['Subject'] = subject
+        msg.attach(MIMEText(htmlheader, 'html'))
+        
+        if filename:
+            attachment = open("./" + filename, "rb")
+            part = MIMEBase('application', 'octet-stream')
+            part.set_payload(attachment.read())
+            encoders.encode_base64(part)
+            part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+            msg.attach(part)
+  
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(self.config['EMAIL']['from'], self.config['EMAIL']['password'])
+        text = msg.as_string()
+        server.sendmail(self.config['EMAIL']['from'], self.config['EMAIL']['to'], text)
+        server.quit()
+        
+        logger = com_logger.Logger('Mail')
+        logger.info('Mail sent')
+

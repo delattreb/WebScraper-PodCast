@@ -4,20 +4,27 @@ Auteur: Bruno DELATTRE
 Date : 12/08/2016
 """
 
+import scapperRTL
 import scraperBBC
 import scraperFranceInter
-import scapperRTL
-from lib import com_logger, com_config
+from lib import com_config, com_logger
 
-com_config.setConfig()
-config = com_config.getConfig()
+conf = com_config.Config()
+conf.setconfig()
+config = conf.getconfig()
+
 logger = com_logger.Logger('Main')
-
 logger.info(config['APPLICATION']['name'] + ' ' + config['APPLICATION']['version'])
 logger.info('Start')
 
-scapperRTL.RTL()
-scraperFranceInter.FranceInter()
-scraperBBC.BBC4Science()
+# Scsrap !
+bbc = scraperBBC.BBC()
+bbc.scrap()
+
+rtl = scapperRTL.RTL()
+rtl.scrap()
+
+fi = scraperFranceInter.FranceInter()
+fi.scrap()
 
 logger.info('Stop')
