@@ -56,8 +56,8 @@ class Config:
         
         # URL FRANCE INTER
         self.config['URLFRANCEINTER'] = {}
-        self.config['URLFRANCEINTER']['1'] = 'https://www.franceinter.fr/emissions/la-tete-au-carre'
-        self.config['URLFRANCEINTER']['2'] = 'https://www.franceinter.fr/emissions/affaires-sensibles'
+        self.config['URLFRANCEINTER']['1'] = 'http://radiofrance-podcast.net/podcast09/rss_10212.xml'
+        self.config['URLFRANCEINTER']['2'] = 'http://radiofrance-podcast.net/podcast09/rss_13940.xml'
         
         # Directory Download
         self.config['DIRDOWNLOAD'] = {}

@@ -18,13 +18,13 @@ logger.info(config['APPLICATION']['name'] + ' ' + config['APPLICATION']['version
 logger.info('Start')
 
 # Scrap !   INFO: soup.findall(attrs={'class':None or value})
+fi = scraperFranceInter.FranceInter()
+fi.scrapxml()
+
 bbc = scraperBBC.BBC()
 bbc.scrap()
 
 rtl = scapperRTL.RTL()
 rtl.scrap()
-
-fi = scraperFranceInter.FranceInter()
-fi.scrap()
 
 logger.info('Stop')
