@@ -8,7 +8,8 @@ class FileUtils:
     def __init__(self):
         pass
     
-    def replace(self, val):
+    @staticmethod
+    def replace(val):
         dico_car_part = {'\\': '',
                          ':':  ' ',
                          '%':  '',
@@ -26,7 +27,8 @@ class FileUtils:
             result = result.replace(cle, valeur)
         return result
     
-    def movelist(self, sourcepath, destpath):
+    @staticmethod
+    def movelist(sourcepath, destpath):
         try:
             os.chdir(sourcepath)
             if os.path.exists(destpath):

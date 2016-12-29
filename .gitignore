@@ -92,3 +92,4 @@ src/download/
 !/src/lib/config/config.ini
 !/src/lib/com_config.py
 
+/src/log

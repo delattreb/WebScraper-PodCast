@@ -41,7 +41,7 @@ class BBC:
                             for li_list in ul_list.find_all("li", class_ = ""):
                                 for div_list in li_list.find_all("div", class_ = "programme__body"):
                                     span_name = div_list.find("span", class_ = "programme__title ")
-                                    a_name = span_name.find("span").text.replace("'", " ").replace("\"", " ").replace("?", "")
+                                    a_name = self.fileutils.replace(span_name.find("span").text)
                                     
                                     div_link = div_list.find("div", class_ = "popup__content popup__content--download br-box-subtle br-subtle-link-onbg br-subtle-link-onborder")
                                     if div_link is not None:
@@ -51,8 +51,8 @@ class BBC:
                                         if com_sqlite.select(a_name) != a_name:
                                             base_dir = os.path.dirname(os.path.abspath(__file__))
                                             db_path = os.path.join(base_dir, self.config['DIRDOWNLOAD']['DIR'])
-                                            urllib.request.urlretrieve(a_link, db_path + "/" + a_name)
-                                            logger.info('Downloaded: ' + a_name)
+                                            urllib.request.urlretrieve(a_link, db_path + "/" + a_name + ".mp3")
+                                            logger.info('Downloaded: ' + a_name + ".mp3")
                                             com_sqlite.insert(a_name)
                                             table.append(a_name)
                                             mail = com_email.Mail()
