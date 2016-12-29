@@ -41,8 +41,8 @@ class Config:
         
         # URL RTL
         self.config['URLRTL'] = {}
-        self.config['URLRTL']['1'] = 'http://www.rtl.fr/emission/laurent-gerra'
-        self.config['URLRTL']['2'] = 'http://www.rtl.fr/emission/c-est-a-lire'
+        self.config['URLRTL']['1'] = 'http://www.rtl.fr/podcast/laurent-gerra.xml'
+        self.config['URLRTL']['2'] = 'http://www.rtl.fr/podcast/cest-a-lire.xml'
         
         # URL BBC
         self.config['URLBBC'] = {}
@@ -58,6 +58,7 @@ class Config:
         self.config['URLFRANCEINTER'] = {}
         self.config['URLFRANCEINTER']['1'] = 'http://radiofrance-podcast.net/podcast09/rss_10212.xml'
         self.config['URLFRANCEINTER']['2'] = 'http://radiofrance-podcast.net/podcast09/rss_13940.xml'
+        self.config['URLFRANCEINTER']['3'] = 'http://radiofrance-podcast.net/podcast09/rss_11739.xml'
         
         # Directory Download
         self.config['DIRDOWNLOAD'] = {}

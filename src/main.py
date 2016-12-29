@@ -25,6 +25,6 @@ bbc = scraperBBC.BBC()
 bbc.scrap()
 
 rtl = scapperRTL.RTL()
-rtl.scrap()
+rtl.scrapxml()
 
 logger.info('Stop')
