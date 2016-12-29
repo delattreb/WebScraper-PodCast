@@ -22,7 +22,7 @@ class FranceInter:
     
     def scrapxml(self):
         logger = com_logger.Logger('France Inter')
-    
+        
         table = []
         for conf in self.config['URLFRANCEINTER']:
             url = self.config['URLFRANCEINTER'][str(conf)]
@@ -31,11 +31,11 @@ class FranceInter:
                 url = urllib.request.urlopen(url).read()
                 soup = BeautifulSoup(url, "lxml")
                 soup.prettify()
-
+                
                 for item_list in soup.find_all("item"):
-                    a_name = item_list.find("title").text
+                    a_name = item_list.find("title").text.replace("?", "")
                     a_link = item_list.find("guid").text
-
+                    
                     logger.debug('Find: ' + a_name)
                     if com_sqlite.select(a_name) != a_name:
                         base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -47,7 +47,7 @@ class FranceInter:
                         mail = com_email.Mail()
                         mail.send_mail_gmail("France Inter: " + a_name, table)
                     break
-
+    
     def scrap(self):
         logger = com_logger.Logger('France Inter')
         
