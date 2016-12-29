@@ -17,7 +17,7 @@ logger = com_logger.Logger('Main')
 logger.info(config['APPLICATION']['name'] + ' ' + config['APPLICATION']['version'])
 logger.info('Start')
 
-# Scrap !
+# Scrap !   INFO: soup.findall(attrs={'class':None or value})
 bbc = scraperBBC.BBC()
 bbc.scrap()
 
