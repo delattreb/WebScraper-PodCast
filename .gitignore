@@ -93,3 +93,5 @@ src/download/
 !/src/lib/com_config.py
 
 /src/log
+/pythonenv/
+!/pythonenv/requirements.txt

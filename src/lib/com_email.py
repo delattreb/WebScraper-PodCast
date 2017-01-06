@@ -17,6 +17,7 @@ class Mail:
     def __init__(self):
         conf = com_config.Config()
         self.config = conf.getconfig()
+        self.logger = com_logger.Logger('Mail')
     
     def send_mail_gmail(self, subject, table, filename = ''):
         htmlheader = """\
@@ -50,14 +51,14 @@ class Mail:
             encoders.encode_base64(part)
             part.add_header('Content-Disposition', "attachment; filename= %s" % filename)
             msg.attach(part)
-  
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login(self.config['EMAIL']['from'], self.config['EMAIL']['password'])
-        text = msg.as_string()
-        server.sendmail(self.config['EMAIL']['from'], self.config['EMAIL']['to'], text)
-        server.quit()
-        
-        logger = com_logger.Logger('Mail')
-        logger.info('Mail sent')
-
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(self.config['EMAIL']['from'], self.config['EMAIL']['password'])
+            text = msg.as_string()
+            server.sendmail(self.config['EMAIL']['from'], self.config['EMAIL']['to'], text)
+            server.quit()
+            
+            self.logger.info('Mail sent')
+        except Exception as exp:
+            self.logger.error('Send email error: ' + str(exp))
