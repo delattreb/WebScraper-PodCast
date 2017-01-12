@@ -47,7 +47,7 @@ class BBC:
                                     if div_link is not None:
                                         a_link = div_link.find("a", class_ = "link-complex popup__list__item island--squashed br-subtle-bg-ontext br-subtle-bg-onbg--hover br-subtle-link-ontext--hover")["href"]
                                         
-                                        logger.debug('Find: ' + a_name)
+                                        logger.info('Find: ' + a_name)
                                         if com_sqlite.select(a_name) != a_name:
                                             base_dir = os.path.dirname(os.path.abspath(__file__))
                                             db_path = os.path.join(base_dir, self.config['DIRDOWNLOAD']['DIR'])

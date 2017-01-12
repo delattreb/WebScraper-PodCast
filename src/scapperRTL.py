@@ -75,7 +75,7 @@ class RTL:
                     a_name = self.fileutils.replace(item_list.find("title").text)
                     a_link = item_list.find("guid").text
                 
-                    logger.debug('Find: ' + a_name)
+                    logger.info('Find: ' + a_name)
                     if com_sqlite.select(a_name) != a_name:
                         base_dir = os.path.dirname(os.path.abspath(__file__))
                         db_path = os.path.join(base_dir, self.config['DIRDOWNLOAD']['DIR'])
