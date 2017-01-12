@@ -3,10 +3,12 @@ import os
 import os.path
 import shutil
 
+from lib import com_logger
+
 
 class FileUtils:
     def __init__(self):
-        pass
+        self.logger = com_logger.Logger('FILE')
     
     @staticmethod
     def replace(val):
@@ -15,11 +17,12 @@ class FileUtils:
                          '%':  '',
                          '*':  '',
                          '"':  ' ',
-                         '\'': ' ',
-                         '/': ' ',
-                         '’': ' ',
+                         '\'': '',
+                         '/':  '',
+                         '’':  ' ',
                          '!':  '',
-                         ',':  ' ',
+                         ',':  '',
+                         ';':  '',
                          '-':  ' ',
                          '?':  ''
                          }
@@ -28,8 +31,7 @@ class FileUtils:
             result = result.replace(cle, valeur)
         return result
     
-    @staticmethod
-    def movelist(sourcepath, destpath):
+    def movelist(self, sourcepath, destpath):
         try:
             os.chdir(sourcepath)
             if os.path.exists(destpath):
@@ -39,5 +41,5 @@ class FileUtils:
                     shutil.move(sourcepath + "/" + file, destpath + "/" + file)
             else:
                 print('Destination not preset')
-        except:
-            pass
+        except Exception as exp:
+            self.logger.error(str(exp))
