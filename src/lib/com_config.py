@@ -53,6 +53,12 @@ class Config:
         self.config['URLBBC']['5'] = 'http://www.bbc.co.uk/programmes/b006qng8/episodes/downloads'
         self.config['URLBBC']['6'] = 'http://www.bbc.co.uk/programmes/b01jxzy9/episodes/downloads'
         self.config['URLBBC']['7'] = 'http://www.bbc.co.uk/programmes/b04gyx0t/episodes/downloads'
+        self.config['URLBBC']['8'] = 'http://www.bbc.co.uk/programmes/p02pc9tn/episodes/downloads'
+        self.config['URLBBC']['9'] = 'http://www.bbc.co.uk/programmes/p02nq0lx/episodes/downloads'
+        self.config['URLBBC']['10'] = 'http://www.bbc.co.uk/programmes/p02pc9zn/episodes/downloads'
+        self.config['URLBBC']['11'] = 'http://www.bbc.co.uk/programmes/p02pc9wq/episodes/downloads'
+        self.config['URLBBC']['12'] = 'http://www.bbc.co.uk/programmes/p002w557/episodes/downloads'
+        self.config['URLBBC']['13'] = 'http://www.bbc.co.uk/programmes/b006qxx9/episodes/downloads'
         
         # URL FRANCE INTER
         self.config['URLFRANCEINTER'] = {}
