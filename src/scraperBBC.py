@@ -49,10 +49,11 @@ class BBC:
                                         
                                         logger.info('Find: ' + a_name)
                                         if com_sqlite.select(a_name) != a_name:
+                                            logger.info('Download: ' + a_name)
                                             base_dir = os.path.dirname(os.path.abspath(__file__))
                                             db_path = os.path.join(base_dir, self.config['DIRDOWNLOAD']['DIR'])
                                             urllib.request.urlretrieve(a_link, db_path + "/" + a_name + ".mp3")
-                                            logger.info('Downloaded: ' + a_name + ".mp3")
+                                            logger.info('Downloaded !')
                                             com_sqlite.insert(a_name)
                                             table.append(a_name)
                                             mail = com_email.Mail()

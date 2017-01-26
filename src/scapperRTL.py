@@ -45,12 +45,13 @@ class RTL:
                             a_name = self.fileutils.replace(div_mp3.find("span", class_ = "legend").text)
                             a_link = div_mp3.find("a", class_ = "dl icon icon-download")["href"]
                             
-                            logger.debug('Find: ' + a_name)
+                            logger.info('Find: ' + a_name)
                             if com_sqlite.select(a_name) != a_name:
+                                logger.info('Download: ' + a_name)
                                 base_name = os.path.dirname(os.path.abspath(__file__))
                                 db_path = os.path.join(base_name, self.config['DIRDOWNLOAD']['DIR'])
                                 urllib.request.urlretrieve(a_link, db_path + "/" + a_name + ".mp3")
-                                logger.info('Downloaded: ' + a_name)
+                                logger.info('Downloaded !')
                                 com_sqlite.insert(a_name)
                                 table.append(a_name)
                                 mail = com_email.Mail()
