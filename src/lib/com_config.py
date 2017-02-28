@@ -24,7 +24,7 @@ class Config:
         
         # LOGGER
         self.config['LOGGER'] = {}
-        self.config['LOGGER']['levelconsole'] = '20'  # DEBUG=10 INFO=20 WARNING=30 ERROR=40 #CRITICAL=50
+        self.config['LOGGER']['levelconsole'] = '10'  # DEBUG=10 INFO=20 WARNING=30 ERROR=40 #CRITICAL=50
         self.config['LOGGER']['levelfile'] = '40'
         self.config['LOGGER']['logfile'] = 'log'
         self.config['LOGGER']['logfilesize'] = '1000000'
@@ -65,6 +65,12 @@ class Config:
         self.config['URLFRANCEINTER']['1'] = 'http://radiofrance-podcast.net/podcast09/rss_10212.xml'
         self.config['URLFRANCEINTER']['2'] = 'http://radiofrance-podcast.net/podcast09/rss_13940.xml'
         self.config['URLFRANCEINTER']['3'] = 'http://radiofrance-podcast.net/podcast09/rss_11739.xml'
+        self.config['URLFRANCEINTER']['4'] = 'http://radiofrance-podcast.net/podcast09/rss_12689.xml'
+        self.config['URLFRANCEINTER']['5'] = 'http://radiofrance-podcast.net/podcast09/rss_13019.xml'
+        
+        #  URL FRANCE CULTURE
+        self.config['URLFRANCECULTURE'] = {}
+        self.config['URLFRANCECULTURE']['1'] = 'http://radiofrance-podcast.net/podcast09/rss_10177.xml'
         
         # Directory Download
         self.config['DIRDOWNLOAD'] = {}

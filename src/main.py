@@ -6,6 +6,7 @@ Date : 12/08/2016
 
 import scapperRTL
 import scraperBBC
+import scraperFranceCulture
 import scraperFranceInter
 from lib import com_config, com_logger
 
@@ -18,6 +19,9 @@ logger.info(config['APPLICATION']['name'] + ' ' + config['APPLICATION']['version
 logger.info('Start')
 
 # Scrap !   INFO: soup.findall(attrs={'class':None or value})
+fc = scraperFranceCulture.FranceCulture()
+fc.scrapxml()
+
 fi = scraperFranceInter.FranceInter()
 fi.scrapxml()
 
